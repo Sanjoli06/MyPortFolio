@@ -1,0 +1,143 @@
+.experience {
+  padding: 80px 60px;
+  background: var(--light);
+  text-align: center;
+  position: relative;
+}
+
+.experience h2 {
+  font-size: 32px;
+  margin-bottom: 60px;
+  color: var(--primary);
+}
+
+/* Timeline Container */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+/* Airplane path (curved line with CSS) */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
+  left: 50%;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+/* Timeline Item (card) */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  margin: 40px 0;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.timeline-item.left {
+  left: 0;
+  transform: translateX(-50px);
+}
+
+.timeline-item.right {
+  left: 50%;
+  transform: translateX(50px);
+}
+
+.timeline-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Flight Path Dot (icon) */
+.timeline-item::after {
+  content: '✈️';
+  position: absolute;
+  font-size: 24px;
+  top: 20px;
+  z-index: 2;
+}
+
+.timeline-item.left::after {
+  right: -36px;
+}
+
+.timeline-item.right::after {
+  left: -36px;
+}
+
+/* Card content */
+.timeline-content h3 {
+  color: var(--primary);
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.timeline-content .date {
+  display: block;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.timeline-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.timeline-content li {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* Slide in animation for timeline items */
+[data-aos="fade-right"] {
+  transform: translateX(-100px);
+  opacity: 0;
+}
+
+[data-aos="fade-left"] {
+  transform: translateX(100px);
+  opacity: 0;
+}
+
+[data-aos].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 1s ease;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 90%;
+    left: 0 !important;
+    transform: translateX(0) !important;
+    margin: 20px 0;
+  }
+
+  .timeline-item::after {
+    left: -28px !important;
+  }
+}
