@@ -1,5 +1,4 @@
 import React from "react";
-import "./Certifications.css";
 
 const certifications = [
   {
@@ -31,19 +30,36 @@ const certifications = [
 
 function Certifications() {
   return (
-    <section className="certifications" id="certifications">
-      <h2 data-aos="fade-up">Certifications & Achievements</h2>
-      <div className="certifications-grid">
+    <section
+      id="certifications"
+      className="py-10 px-6 md:px-16 bg-gradient-to-b from-white via-indigo-50 to-indigo-100"
+    >
+      <h2
+        className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-12"
+        data-aos="fade-up"
+      >
+        Certifications & <span className="text-indigo-600">Achievements</span>
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {certifications.map((cert, index) => (
           <div
             key={index}
-            className="cert-card"
+            className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105 hover:shadow-2xl"
             data-aos="fade-up"
             data-aos-delay={index * 150}
           >
-            <img src={cert.badge} alt={cert.title} />
-            <h3>{cert.title}</h3>
-            <p>{cert.description}</p>
+            <img
+              src={cert.badge}
+              alt={cert.title}
+              className="w-16 h-16 mb-4 drop-shadow-md"
+            />
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              {cert.title}
+            </h3>
+            <p className="text-gray-600 text-sm md:text-base">
+              {cert.description}
+            </p>
           </div>
         ))}
       </div>
